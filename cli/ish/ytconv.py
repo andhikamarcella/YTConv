@@ -71,8 +71,8 @@ def handle_donation(arguments, input_fn=input, open_browser=webbrowser.open, sle
     if not arguments or arguments[0].lower() not in ("donate", "donation", "fund", "support-us"):
         return None
     output_fn("Donate: just pay what you can\n")
-    output_fn("  1  Ko-fi   · Global")
-    output_fn("  2  Saweria · Indonesia only")
+    output_fn("  1  Ko-fi   | Global")
+    output_fn("  2  Saweria | Indonesia only")
     output_fn("\nDonations are optional. Every YTConv feature remains available without paying.")
     interactive = bool(sys.stdin.isatty() and sys.stdout.isatty())
     choice = arguments[1] if len(arguments) > 1 else ""
