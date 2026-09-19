@@ -146,18 +146,18 @@ function Logo({ layout, account, accentColor }) {
     Box,
     { flexDirection: 'column', alignItems: 'center' },
     h(Text, { bold: true, color: accentColor }, logo),
-    h(Text, { bold: true, color: accentColor }, 'paste a social link · download · convert · done'),
+    h(Text, { bold: true, color: accentColor }, 'paste a social link | download | convert | done'),
     !layout.tinyLogo
-      ? h(Text, { dimColor: true }, 'YouTube · Instagram · Facebook · TikTok · X · Pinterest · Reddit · 30+ platforms')
+      ? h(Text, { dimColor: true }, 'YouTube | Instagram | Facebook | TikTok | X | Pinterest | Reddit | 30+ platforms')
       : null,
-    h(Text, { dimColor: true }, `${safeText(account || 'local user', 120)} · private browser recovery · v${CLI_VERSION}`),
+    h(Text, { dimColor: true }, `${safeText(account || 'local user', 120)} | private browser recovery | v${CLI_VERSION}`),
   );
 }
 
 function MediaCard({ media, panelWidth, accentColor }) {
   if (!media) return null;
   const details = [media.platform, media.uploader, durationText(media.duration), media.engine]
-    .filter(Boolean).join(' · ');
+    .filter(Boolean).join(' | ');
   return h(
     Box,
     { width: panelWidth, borderStyle: 'round', borderColor: accentColor, paddingX: 1, flexDirection: 'column' },
@@ -205,14 +205,14 @@ function HomeScreen({
     ),
     inputError ? h(Text, { color: 'red', bold: true, wrap: 'wrap' }, `! ${inputError}`) : null,
     actionMessage ? h(Text, { wrap: 'wrap' }, `✓ ${safeText(actionMessage)}`) : null,
-    showDetails ? h(Text, { dimColor: true }, `${platform} · mode:${mode} · format:${mediaSetting} · upscale:${upscaleHeight ? `${upscaleHeight}p` : 'off'}`) : null,
+    showDetails ? h(Text, { dimColor: true }, `${platform} | mode:${mode} | format:${mediaSetting} | upscale:${upscaleHeight ? `${upscaleHeight}p` : 'off'}`) : null,
     showDetails ? h(Text, { dimColor: true },
-      `subs:${subtitles ? 'on' : 'off'} · access:${cookieSourceLabel(cookieSource)} · playlist:${playlist ? 'on' : 'off'}`) : null,
+      `subs:${subtitles ? 'on' : 'off'} | access:${cookieSourceLabel(cookieSource)} | playlist:${playlist ? 'on' : 'off'}`) : null,
     h(Box, { marginTop: 1, borderStyle: 'round', paddingX: 2 },
       h(Text, { inverse: true, bold: true }, ' ENTER  DOWNLOAD / CONVERT ')),
-    showShortcuts ? h(Text, { dimColor: true }, 'Ctrl+M mode · Ctrl+A audio · Ctrl+T video · Ctrl+Q quality · Ctrl+U upscale · Ctrl+F image') : null,
-    showShortcuts ? h(Text, { dimColor: true }, 'Ctrl+G platform · Ctrl+B access · Ctrl+S subtitles · Ctrl+P playlist · Ctrl+V paste') : null,
-    h(Text, { dimColor: true }, 'N donate · H help · D diagnostics · Q/Esc exit'),
+    showShortcuts ? h(Text, { dimColor: true }, 'Ctrl+M mode | Ctrl+A audio | Ctrl+T video | Ctrl+Q quality | Ctrl+U upscale | Ctrl+F image') : null,
+    showShortcuts ? h(Text, { dimColor: true }, 'Ctrl+G platform | Ctrl+B access | Ctrl+S subtitles | Ctrl+P playlist | Ctrl+V paste') : null,
+    h(Text, { dimColor: true }, 'N donate | H help | D diagnostics | Q/Esc exit'),
   );
 }
 
@@ -223,15 +223,15 @@ function DonationScreen({ panelWidth, result, message }) {
     { width: panelWidth, flexDirection: 'column', alignItems: 'center', marginTop: 1 },
     h(Box, { width: panelWidth, borderStyle: 'double', paddingX: 1, flexDirection: 'column' },
       h(Text, { bold: true }, 'Donate: just pay what you can'),
-      h(Text, null, '1  Ko-fi   · Global'),
-      h(Text, null, '2  Saweria · Indonesia only'),
+      h(Text, null, '1  Ko-fi   | Global'),
+      h(Text, null, '2  Saweria | Indonesia only'),
       h(Text, { dimColor: true }, 'Donations are optional. Every YTConv feature stays available without paying.')),
     message ? h(Text, { wrap: 'wrap' }, safeText(message)) : null,
     selectedUrl ? h(Text, { dimColor: true, wrap: 'wrap' }, safeText(selectedUrl)) : null,
     result
       ? h(Text, { bold: true }, 'Returning to YTConv in 5 seconds...')
-      : h(Text, { bold: true }, 'Press 1 or 2 · B back · Q exit'),
-    result && !result.opened ? h(Text, { dimColor: true }, 'C copy the link again · B return now') : null,
+      : h(Text, { bold: true }, 'Press 1 or 2 | B back | Q exit'),
+    result && !result.opened ? h(Text, { dimColor: true }, 'C copy the link again | B return now') : null,
   );
 }
 
@@ -278,7 +278,7 @@ function DoneScreen({ media, panelWidth, outputDirectory, outputPath, actionMess
       h(Text, { bold: true, color: accentColor }, '✓ download and conversion complete'),
       h(Text, { dimColor: true, wrap: 'truncate-end' }, safeText(outputPath || outputDirectory))),
     actionMessage ? h(Text, null, safeText(actionMessage)) : null,
-    h(Text, { dimColor: true }, 'O open folder · F open file · C copy path · R another URL · Q exit'),
+    h(Text, { dimColor: true }, 'O open folder | F open file | C copy path | R another URL | Q exit'),
   );
 }
 
@@ -293,7 +293,7 @@ function ErrorScreen({ error, media, panelWidth, cookieSource, actionMessage, ur
       h(Text, { dimColor: true }, `access: ${cookieSourceLabel(cookieSource)}`)),
     actionMessage ? h(Text, null, safeText(actionMessage)) : null,
     socialLoginHint(url) ? h(Text, null, socialLoginHint(url)) : null,
-    h(Text, { dimColor: true }, 'L official browser login · R retry · E edit URL · D diagnostics · Q exit'),
+    h(Text, { dimColor: true }, 'L official browser login | R retry | E edit URL | D diagnostics | Q exit'),
   );
 }
 
@@ -307,7 +307,7 @@ function LoginScreen({ handoff, panelWidth, actionMessage }) {
       h(Text, { dimColor: true }, `Browser: ${safeText(handoff.browserDisplay || handoff.browserSpec)}`),
       h(Text, { dimColor: true, wrap: 'truncate-end' }, safeText(handoff.loginUrl))),
     actionMessage ? h(Text, null, safeText(actionMessage)) : null,
-    h(Text, { bold: true }, 'Enter verify and retry · B another browser · Q exit'),
+    h(Text, { bold: true }, 'Enter verify and retry | B another browser | Q exit'),
     h(Text, { dimColor: true }, 'Passwords and OTP codes never enter YTConv. Temporary cookies are deleted after the attempt.'),
   );
 }
@@ -338,7 +338,7 @@ function HelpScreen({ panelWidth, termux }) {
       ? 'Termux downloads public URLs. Private Android browser sessions cannot be read directly.'
       : 'AUTO tries public access first and asks for official browser login only when necessary.'),
     h(Text, { dimColor: true }, `Support: ${SUPPORT_EMAIL}`),
-    h(Text, null, 'B back · Q exit'),
+    h(Text, null, 'B back | Q exit'),
   );
 }
 
@@ -364,7 +364,7 @@ function DiagnosticsScreen({ dependencies, panelWidth, outputDirectory, cookieSo
     ...rows.map(([label, value]) => h(Box, { key: label, flexDirection: 'row' },
       h(Box, { width: 15 }, h(Text, { bold: true }, label)),
       h(Text, { dimColor: true, wrap: 'truncate-end' }, safeText(value)))),
-    h(Text, null, 'B back · Q exit'),
+    h(Text, null, 'B back | Q exit'),
   );
 }
 
@@ -540,7 +540,7 @@ function App({
         let cookieConfig = configuredCookie;
         const platformKey = platformHint === 'auto' ? detectSocialPlatform(value) : platformHint;
         setStage('probing');
-        setStatusText(`${socialPlatformLabel(platformKey)} · trying ${configuredCookie.label}`);
+        setStatusText(`${socialPlatformLabel(platformKey)} | trying ${configuredCookie.label}`);
 
         try {
           cookieConfig = await prepareManagedCookieConfig(configuredCookie);
@@ -558,7 +558,7 @@ function App({
           });
           setMedia(inspected);
           setStage('downloading');
-          setStatusText(`${inspected.platform || socialPlatformLabel(platformKey)} · ${cookieConfig.label}`);
+          setStatusText(`${inspected.platform || socialPlatformLabel(platformKey)} | ${cookieConfig.label}`);
 
           const result = await downloadMedia({
             ytDlpPath: dependencies.ytDlp.path,
@@ -597,7 +597,7 @@ function App({
           const finalPath = result.outputPath || outputDirectory;
           setOutputPath(finalPath);
           setProgress((current) => ({ ...current, percent: '100%' }));
-          setStatusText(`${result.fileCount || 1} file · ${result.engine || 'done'}`);
+          setStatusText(`${result.fileCount || 1} file | ${result.engine || 'done'}`);
           if (pendingHandoff) {
             try {
               await confirmSocialLoginHandoff(pendingHandoff);
@@ -615,7 +615,7 @@ function App({
           lastError = caught;
           void appendSessionLog(caught instanceof Error ? caught.message : String(caught), 'error');
           if (cookieConfigs[index + 1]) {
-            setStatusText(`access failed · trying ${cookieConfigs[index + 1].label}`);
+            setStatusText(`access failed | trying ${cookieConfigs[index + 1].label}`);
           }
         } finally {
           await disposePreparedCookieConfig(cookieConfig);
@@ -840,7 +840,7 @@ function App({
     h(Logo, { layout, account: process.env.YTCONV_ACCOUNT_LABEL, accentColor }),
     content,
     !layout.tinyLogo
-      ? h(Text, { dimColor: true }, `Copyright © 2026 YTConv Project · ${SUPPORT_EMAIL}`)
+      ? h(Text, { dimColor: true }, `Copyright © 2026 YTConv Project | ${SUPPORT_EMAIL}`)
       : null,
   );
 }
