@@ -26,7 +26,7 @@ const TOPICS = Object.freeze([
   ['architecture', 'Architecture and process boundaries', 'ARCHITECTURE.md', ['internals', 'design']],
   ['nodejs', 'Node.js integration', 'NODEJS.md', ['node', 'api', 'library']],
   ['faq', 'Frequently asked questions', 'FAQ.md', ['questions', 'help']],
-  ['migration', 'Migration to YTConv 1.7.6', 'MIGRATION-1.7.6.md', ['migrate', '1.7.6', 'repository']],
+  ['migration', 'Migration to YTConv 1.7.7', 'MIGRATION-1.7.7.md', ['migrate', '1.7.7', '1.7.6', 'repository']],
   ['trusted-publishing', 'npm Trusted Publishing', 'TRUSTED-PUBLISHING.md', ['oidc', 'npm', 'publish']],
   ['help-center', 'Interactive help center', 'HELP-CENTER.md', ['docs-command', 'about', 'shortcuts']],
   ['support', 'Support and bug reports', 'SUPPORT.md', ['email', 'bug', 'contact']],
