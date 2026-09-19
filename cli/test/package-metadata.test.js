@@ -115,7 +115,7 @@ test('Android package is current and keeps subtitles off by default', () => {
 
 test('README presents the current release identity and browser-login behavior', () => {
   assert.match(readme, new RegExp(manifest.version.replaceAll('.', '\\.'), 'u'));
-  assert.match(readme, /Donate just pay what you can/u);
+  assert.match(readme, /Donate: just pay what you can/u);
   assert.match(readme, /ko-fi\.com\/cellauu/u);
   assert.match(readme, /saweria\.co\/dhikamarcella/u);
   assert.match(readme, /repeat-safe/u);
