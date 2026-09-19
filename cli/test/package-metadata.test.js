@@ -25,10 +25,10 @@ test('current release exposes complete pinned identity and security metadata', (
   });
   assert.deepEqual(manifest.maintainers, ['Andhika Marcella Fernanda <andhikamarcella546@gmail.com>']);
   assert.equal(manifest.license, 'ISC');
-  assert.equal(manifest.releaseDate, '2026-08-12');
-  assert.match(manifest.releaseNotes, /native 2160p selection/iu);
-  assert.match(manifest.releaseNotes, /requested quality/iu);
-  assert.match(manifest.releaseNotes, /operating-system-aware interactive colors/iu);
+  assert.equal(manifest.releaseDate, '2026-09-19');
+  assert.match(manifest.releaseNotes, /1\.7\.7|documentation/iu);
+  assert.match(manifest.releaseNotes, /long-dash|documentation/iu);
+  assert.match(manifest.releaseNotes, /donation/iu);
   assert.equal(manifest.main, './src/index.js');
   assert.equal(manifest.types, './types/index.d.ts');
   assert.equal(manifest.exports['.'].types, './types/index.d.ts');
@@ -113,9 +113,9 @@ test('Android package is current and keeps subtitles off by default', () => {
   assert.match(activity, /Converting/u);
 });
 
-test('README presents the 1.7.6 identity and browser-login behavior', () => {
+test('README presents the current release identity and browser-login behavior', () => {
   assert.match(readme, new RegExp(manifest.version.replaceAll('.', '\\.'), 'u'));
-  assert.match(readme, /Donate: just pay what you can/u);
+  assert.match(readme, /Donate just pay what you can/u);
   assert.match(readme, /ko-fi\.com\/cellauu/u);
   assert.match(readme, /saweria\.co\/dhikamarcella/u);
   assert.match(readme, /repeat-safe/u);
