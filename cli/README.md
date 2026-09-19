@@ -10,7 +10,7 @@
 
 The npm package is a CLI only. It contains no web application, no telemetry, and no `preinstall`, `install`, or `postinstall` hooks.
 
-## Donate — just pay what you can
+## Donate just pay what you can
 
 Donations are optional. Every YTConv feature remains available without paying.
 
@@ -18,8 +18,8 @@ Donations are optional. Every YTConv feature remains available without paying.
 ytconv donate
 ```
 
-- [Ko-fi](https://ko-fi.com/cellauu) — global users
-- [Saweria](https://saweria.co/dhikamarcella) — users in Indonesia
+- [Ko-fi](https://ko-fi.com/cellauu) for global users
+- [Saweria](https://saweria.co/dhikamarcella) for users in Indonesia
 
 Choose a provider in the CLI and YTConv will ask the operating system to open its exact HTTPS page. The interactive screen returns home after five seconds. If automatic browser opening is unavailable, the CLI copies the link when possible and always shows the complete link for manual use. See the [donation guide](docs/DONATE.md).
 
