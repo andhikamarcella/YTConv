@@ -1,9 +1,9 @@
-name: YTConv CLI 1.7.6 Core and Compatibility
+name: YTConv CLI 1.7.7 Core and Compatibility
 
 on:
   push:
     branches:
-      - release/ytconv-1.7.6
+      - release/ytconv-1.7.7
     paths:
       - "cli/**"
       - "AGENTS.md"
@@ -29,7 +29,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: ytconv-cli-1.7.6-${{ github.ref }}
+  group: ytconv-cli-1.7.7-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -56,19 +56,19 @@ jobs:
       - run: npm test
       - run: npm run test:help-center
       - run: npm run security
-      - name: Verify 1.7.6 identity, help center, repository, and AUTO policy
+      - name: Verify 1.7.7 identity, help center, repository, and AUTO policy
         run: |
-          test "$(node ./bin/ytconv.js --version)" = "1.7.6"
-          test "$(cat ish/VERSION)" = "1.7.6"
+          test "$(node ./bin/ytconv.js --version)" = "1.7.7"
+          test "$(cat ish/VERSION)" = "1.7.7"
           node ./bin/ytconv-auth.js --help | grep -F 'cookies-browser'
           node ./bin/ytconv.js docs --list | grep -F 'Documentation Topics'
           node ./bin/ytconv.js docs migration | grep -F 'MIGRATION-1.7.6.md'
-          node ./bin/ytconv.js about | grep -F 'YTConv 1.7.6'
+          node ./bin/ytconv.js about | grep -F 'YTConv 1.7.7'
           node ./bin/ytconv.js shortcuts | grep -F 'Ctrl+M'
           node ./bin/ytconv.js completion bash | grep -F 'docs about shortcuts'
           node --input-type=module - <<'NODE'
           const manifest = JSON.parse(await (await import('node:fs/promises')).readFile('./package.json', 'utf8'));
-          if (manifest.version !== '1.7.6') throw new Error(manifest.version);
+          if (manifest.version !== '1.7.7') throw new Error(manifest.version);
           if (manifest.license !== 'ISC') throw new Error(manifest.license);
           if (!manifest.repository.url.includes('andhikamarcella/YTConv')) throw new Error(manifest.repository.url);
           for (const dependency of ['commander', 'figlet', 'which', 'isexe']) {
@@ -123,7 +123,7 @@ jobs:
         if: runner.os == 'Windows'
         shell: pwsh
         run: |
-          if ((node .\bin\ytconv.js --version) -ne '1.7.6') { throw 'wrong version' }
+          if ((node .\bin\ytconv.js --version) -ne '1.7.7') { throw 'wrong version' }
           node .\bin\ytconv-auth.js --help
           node .\bin\ytconv.js docs --list
           node .\bin\ytconv.js about
@@ -161,7 +161,7 @@ jobs:
           TARBALL=$(npm pack --ignore-scripts --silent)
           PREFIX="$RUNNER_TEMP/ytconv-npm-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
           npm install --prefix "$PREFIX" "$PWD/$TARBALL" --ignore-scripts
-          test "$(node "$PREFIX/node_modules/ytconv/bin/ytconv.js" --version)" = "1.7.6"
+          test "$(node "$PREFIX/node_modules/ytconv/bin/ytconv.js" --version)" = "1.7.7"
           node "$PREFIX/node_modules/ytconv/bin/ytconv.js" docs migration | grep -F 'MIGRATION-1.7.6.md'
 
   alpine-ish:
@@ -183,10 +183,10 @@ jobs:
           npm run test:help-center
           npm run check:ish
           PYTHONWARNINGS=error::ResourceWarning npm run test:ish
-          test "$(python3 ./ish/ytconv.py --version)" = "1.7.6"
-          test "$(node ./bin/ytconv.js --version)" = "1.7.6"
+          test "$(python3 ./ish/ytconv.py --version)" = "1.7.7"
+          test "$(node ./bin/ytconv.js --version)" = "1.7.7"
           node ./bin/ytconv.js docs migration | grep -F 'MIGRATION-1.7.6.md'
-          grep -F 'release/ytconv-1.7.6' ish/ytconv.py scripts/install-ish.sh
+          grep -F 'release/ytconv-1.7.7' ish/ytconv.py scripts/install-ish.sh
 
   public-youtube-mp4:
     runs-on: ubuntu-latest
