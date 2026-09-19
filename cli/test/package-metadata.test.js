@@ -65,7 +65,7 @@ test('current release exposes complete pinned identity and security metadata', (
   ]);
   assert.equal(manifest.funding.every(({ url }) => /^https:\/\//u.test(url) && !/[\[\]()]/u.test(url)), true);
   assert.match(manifest.documentation.donate, /docs\/DONATE\.md$/u);
-  assert.match(manifest.documentation.migration, /docs\/MIGRATION-1\.7\.6\.md$/u);
+  assert.match(manifest.documentation.migration, /docs\/MIGRATION-1\.7\.7\.md$/u);
 });
 
 test('published npm allowlist remains CLI only', () => {
