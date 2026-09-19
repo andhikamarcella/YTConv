@@ -222,7 +222,7 @@ function DonationScreen({ panelWidth, result, message }) {
     Box,
     { width: panelWidth, flexDirection: 'column', alignItems: 'center', marginTop: 1 },
     h(Box, { width: panelWidth, borderStyle: 'double', paddingX: 1, flexDirection: 'column' },
-      h(Text, { bold: true }, 'Donate — just pay what you can'),
+      h(Text, { bold: true }, 'Donate: just pay what you can'),
       h(Text, null, '1  Ko-fi   · Global'),
       h(Text, null, '2  Saweria · Indonesia only'),
       h(Text, { dimColor: true }, 'Donations are optional. Every YTConv feature stays available without paying.')),
