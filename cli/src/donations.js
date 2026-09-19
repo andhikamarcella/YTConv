@@ -41,7 +41,7 @@ export function resolveDonationProvider(value) {
 
 export function donationMenuText() {
   return [
-    'Donate — just pay what you can',
+    'Donate: just pay what you can',
     '',
     '  1  Ko-fi   · Global',
     '  2  Saweria · Indonesia only',
