@@ -1,4 +1,4 @@
-# YTConv – Social Media Downloader and Converter CLI
+# YTConv Social Media Downloader and Converter CLI
 
 [![npm version](https://img.shields.io/npm/v/ytconv.svg)](https://www.npmjs.com/package/ytconv)
 [![Socket Badge](https://badge.socket.dev/npm/package/ytconv/1.7.6)](https://badge.socket.dev/npm/package/ytconv/1.7.6)
