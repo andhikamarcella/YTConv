@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""YTConv 1.7.6 launcher for iSH, Alpine Linux, and Python-only shells."""
+"""YTConv 1.7.7 launcher for iSH, Alpine Linux, and Python-only shells."""
 
 import runpy
 import sys
@@ -8,8 +8,8 @@ import webbrowser
 from pathlib import Path
 from urllib.parse import urlparse
 
-VERSION = "1.7.6"
-RELEASE_BRANCH = "release/ytconv-1.7.6"
+VERSION = "1.7.7"
+RELEASE_BRANCH = "release/ytconv-1.7.7"
 RAW_BASE = "https://raw.githubusercontent.com/andhikamarcella/YTConv/%s/cli" % RELEASE_BRANCH
 CORE = Path(__file__).resolve().with_name("ytconv-core.py")
 DONATIONS = {
@@ -70,7 +70,7 @@ def handle_donation(arguments, input_fn=input, open_browser=webbrowser.open, sle
     """Open one fixed donation page or print it when iSH cannot open a browser."""
     if not arguments or arguments[0].lower() not in ("donate", "donation", "fund", "support-us"):
         return None
-    output_fn("Donate — just pay what you can\n")
+    output_fn("Donate: just pay what you can\n")
     output_fn("  1  Ko-fi   · Global")
     output_fn("  2  Saweria · Indonesia only")
     output_fn("\nDonations are optional. Every YTConv feature remains available without paying.")
