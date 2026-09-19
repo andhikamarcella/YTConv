@@ -2,7 +2,7 @@ import process from 'node:process';
 import { CLI_VERSION } from './version.js';
 
 const REPOSITORY = 'https://github.com/andhikamarcella/YTConv';
-const RELEASE_BRANCH = 'release/ytconv-1.7.6';
+const RELEASE_BRANCH = 'release/ytconv-1.7.7';
 const DOCS_ROOT = `${REPOSITORY}/tree/${RELEASE_BRANCH}/cli/docs`;
 const SUPPORT_EMAIL = 'help.ytconv@proton.me';
 
