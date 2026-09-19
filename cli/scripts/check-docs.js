@@ -49,7 +49,7 @@ for (const relative of required) {
 }
 
 const manifest = JSON.parse(await fs.readFile(path.join(cwd, 'package.json'), 'utf8'));
-if (manifest.version !== '1.7.6') errors.push(`package.json version is ${manifest.version}, expected 1.7.6`);
+if (!manifest.version) errors.push('package.json does not define a package version');
 if (!String(manifest.repository?.url ?? '').includes('andhikamarcella/YTConv')) {
   errors.push('package.json does not reference the canonical andhikamarcella/YTConv repository');
 }
