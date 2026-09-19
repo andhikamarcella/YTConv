@@ -34,6 +34,7 @@ const required = [
   'docs/MIGRATION-1.7.3.md',
   'docs/MIGRATION-1.7.4.md',
   'docs/MIGRATION-1.7.5.md',
+  'docs/MIGRATION-1.7.7.md',
   'docs/MIGRATION-1.7.6.md',
   'docs/MIGRATION-1.7.1.md',
   'docs/HELP-CENTER.md'
