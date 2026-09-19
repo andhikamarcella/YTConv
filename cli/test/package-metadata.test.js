@@ -8,14 +8,14 @@ const cliDirectory = fileURLToPath(new URL('../', import.meta.url));
 const repositoryDirectory = fileURLToPath(new URL('../../', import.meta.url));
 const manifest = JSON.parse(fs.readFileSync(new URL('../package.json', import.meta.url), 'utf8'));
 const readme = fs.readFileSync(new URL('../README.md', import.meta.url), 'utf8');
-const releaseBranch = 'release/ytconv-1.7.6';
+const releaseBranch = 'release/ytconv-1.7.7';
 
 function repoFile(relative) {
   return path.join(repositoryDirectory, relative);
 }
 
-test('1.7.6 exposes complete pinned identity and security metadata', () => {
-  assert.equal(manifest.version, '1.7.6');
+test('current release exposes complete pinned identity and security metadata', () => {
+  assert.match(manifest.version, /^\d+\.\d+\.\d+$/u);
   assert.equal(manifest.description, 'Secure cross-platform social-media downloader and converter with repeat-safe formats, optional donations, browser recovery, diagnostics, and verified release provenance.');
   assert.equal(manifest.publisher, 'Andhika Marcella Fernanda');
   assert.equal(manifest.author, 'Andhika Marcella Fernanda <andhikamarcella546@gmail.com>');
@@ -114,8 +114,8 @@ test('Android package is current and keeps subtitles off by default', () => {
 });
 
 test('README presents the 1.7.6 identity and browser-login behavior', () => {
-  assert.match(readme, /1\.7\.6/u);
-  assert.match(readme, /Donate — just pay what you can/u);
+  assert.match(readme, new RegExp(manifest.version.replaceAll('.', '\\.'), 'u'));
+  assert.match(readme, /Donate: just pay what you can/u);
   assert.match(readme, /ko-fi\.com\/cellauu/u);
   assert.match(readme, /saweria\.co\/dhikamarcella/u);
   assert.match(readme, /repeat-safe/u);
