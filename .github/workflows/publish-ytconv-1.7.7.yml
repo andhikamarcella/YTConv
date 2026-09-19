@@ -1,0 +1,84 @@
+name: Publish YTConv 1.7.7
+
+on:
+  push:
+    branches:
+      - release/ytconv-1.7.7
+    paths:
+      - ".github/release-triggers/ytconv-1.7.7"
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: Confirm publication of ytconv@1.7.7
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: publish-ytconv-1.7.7
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    if: ${{ github.event_name == 'push' || inputs.confirm == true }}
+    runs-on: ubuntu-latest
+    environment: npm
+    defaults:
+      run:
+        working-directory: cli
+    steps:
+      - name: Checkout release source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+
+      - name: Set up Node.js
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+          cache: npm
+          cache-dependency-path: cli/package-lock.json
+
+      - name: Use the pinned npm CLI
+        run: npm install --global npm@11.19.0
+
+      - name: Validate and test release
+        run: |
+          npm ci --ignore-scripts
+          npm run prepack
+          test "$(node -p "require('./package.json').name")" = "ytconv"
+          test "$(node -p "require('./package.json').version")" = "1.7.7"
+          test "$(node ./bin/ytconv.js --version)" = "1.7.7"
+          test "$(cat ish/VERSION)" = "1.7.7"
+
+      - name: Check whether 1.7.7 is already published
+        id: published
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          if npm view ytconv@1.7.7 version --prefer-online >/dev/null 2>&1; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Publish ytconv@1.7.7 to npm
+        if: steps.published.outputs.exists != 'true'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --access public --tag latest --provenance
+
+      - name: Verify npm publication
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          for attempt in $(seq 1 30); do
+            PUBLISHED=$(npm view ytconv@1.7.7 version --prefer-online 2>/dev/null || true)
+            [ "$PUBLISHED" = "1.7.7" ] && break
+            sleep 4
+          done
+          test "$PUBLISHED" = "1.7.7"
+          test "$(npm view ytconv@latest version --prefer-online)" = "1.7.7"
