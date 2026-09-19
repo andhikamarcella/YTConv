@@ -10,7 +10,7 @@
 
 The npm package is a CLI only. It contains no web application, no telemetry, and no `preinstall`, `install`, or `postinstall` hooks.
 
-## Donate just pay what you can
+## Donate: just pay what you can
 
 Donations are optional. Every YTConv feature remains available without paying.
 
