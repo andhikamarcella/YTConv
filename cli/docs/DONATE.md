@@ -1,4 +1,4 @@
-# Donate — just pay what you can
+# Donate: just pay what you can
 
 YTConv is free to use. Donations are optional and do not unlock features, remove limits, change download priority, or affect support.
 
