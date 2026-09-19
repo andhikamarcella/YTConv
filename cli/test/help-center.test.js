@@ -18,7 +18,7 @@ test('documentation topics resolve canonical names and aliases', () => {
   assert.equal(resolveDocumentationTopic('missing-topic'), null);
 });
 
-test('documentation URLs use the canonical 1.7.6 release branch', () => {
+test('documentation URLs use the canonical 1.7.7 release branch', () => {
   assert.match(documentationUrl('faq'), /andhikamarcella\/YTConv\/blob\/release\/ytconv-1\.7\.6\/cli\/docs\/FAQ\.md$/u);
   assert.match(documentationUrl('index'), /andhikamarcella\/YTConv\/tree\/release\/ytconv-1\.7\.6\/cli\/docs$/u);
   assert.match(documentationUrl('donate'), /cli\/docs\/DONATE\.md$/u);
