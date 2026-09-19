@@ -1,6 +1,6 @@
 # YTConv Documentation
 
-This directory is the canonical documentation hub for YTConv 1.7.6. YTConv is a cross-platform command-line downloader and media conversion tool. Use it only for media you own or are authorized to download.
+This directory is the canonical documentation hub for YTConv 1.7.7. YTConv is a cross-platform command-line downloader and media conversion tool. Use it only for media you own or are authorized to download.
 
 ## Start here
 
