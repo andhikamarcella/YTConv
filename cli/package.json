@@ -181,7 +181,7 @@
     "security": "https://github.com/andhikamarcella/YTConv/blob/release/ytconv-1.7.7/cli/SECURITY.md",
     "helpCenter": "https://github.com/andhikamarcella/YTConv/blob/release/ytconv-1.7.7/cli/docs/HELP-CENTER.md",
     "donate": "https://github.com/andhikamarcella/YTConv/blob/release/ytconv-1.7.7/cli/docs/DONATE.md",
-    "migration": "https://github.com/andhikamarcella/YTConv/blob/release/ytconv-1.7.7/cli/docs/MIGRATION-1.7.6.md"
+    "migration": "https://github.com/andhikamarcella/YTConv/blob/release/ytconv-1.7.7/cli/docs/MIGRATION-1.7.7.md"
   },
   "releaseDate": "2026-09-19",
   "releaseNotes": "YTConv 1.7.7 updates the release metadata and documentation for the 1.7.7 CLI while removing long-dash punctuation from the donation presentation.",
