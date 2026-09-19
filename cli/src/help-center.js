@@ -30,7 +30,7 @@ const TOPICS = Object.freeze([
   ['trusted-publishing', 'npm Trusted Publishing', 'TRUSTED-PUBLISHING.md', ['oidc', 'npm', 'publish']],
   ['help-center', 'Interactive help center', 'HELP-CENTER.md', ['docs-command', 'about', 'shortcuts']],
   ['support', 'Support and bug reports', 'SUPPORT.md', ['email', 'bug', 'contact']],
-  ['donate', 'Donate — just pay what you can', 'DONATE.md', ['donation', 'kofi', 'ko-fi', 'saweria', 'funding']],
+  ['donate', 'Donate: just pay what you can', 'DONATE.md', ['donation', 'kofi', 'ko-fi', 'saweria', 'funding']],
 ]);
 
 function normalized(value) {
