@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.7.7 - 2026-09-19
+
+- Updated the npm CLI package metadata and release checks for 1.7.7.
+- Removed long-dash punctuation from the donation heading and donation menus.
+- Synchronized the iSH frontend, active documentation, and release-aware tests with 1.7.7.
+
 ## 1.7.6 - 2026-08-12
 
 - Fixed native 2160p selection so an exact 4K VP9/AV1 stream is preferred before a lower-resolution AVC compatibility fallback; this is source-quality selection, not upscaling.
