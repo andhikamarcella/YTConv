@@ -43,8 +43,8 @@ export function donationMenuText() {
   return [
     'Donate: just pay what you can',
     '',
-    '  1  Ko-fi   · Global',
-    '  2  Saweria · Indonesia only',
+    '  1  Ko-fi   | Global',
+    '  2  Saweria | Indonesia only',
     '',
     'Donations are optional. Every YTConv feature remains available without paying.',
   ].join('\n');
