@@ -35,7 +35,7 @@ test('help-center panels are responsive and discoverable', () => {
     columns: 50,
   });
   assert.equal(migrationOutput.topic, 'migration');
-  assert.match(migrationText, /https:\/\/github\.com\/andhikamarcella\/YTConv\/blob\/release\/ytconv-1\.7\.7\/cli\/docs\/MIGRATION-1\.7\.6\.md/u);
+  assert.match(migrationText, /https:\/\/github\.com\/andhikamarcella\/YTConv\/blob\/release\/ytconv-1\.7\.7\/cli\/docs\/MIGRATION-1\.7\.7\.md/u);
   assert.doesNotMatch(migrationText, /…/u);
   assert.ok(documentationTopics().length >= 24);
 });
